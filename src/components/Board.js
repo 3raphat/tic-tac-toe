@@ -9,8 +9,7 @@ function Board() {
     const winner = calcWinner(box);
     let status;
     if (winner) {
-        status = "Winner: " + winner;
-        return;
+        return status = "Winner: " + winner;
     } else {
         status = "Player turn: " + (X ? 'X' : 'O')
     }
