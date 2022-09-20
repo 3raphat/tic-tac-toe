@@ -10,6 +10,7 @@ function Board() {
     let status;
     if (winner) {
         status = "Winner: " + winner;
+        return;
     } else {
         status = "Player turn: " + (X ? 'X' : 'O')
     }
