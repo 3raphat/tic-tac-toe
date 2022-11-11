@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Box(props) {
+function Box({ onClick, value }) {
   return (
     <div>
-        <button className='btn' onClick={() => props.onClick()}>
-            {props.value}
+        <button className='btn' onClick={onClick}>
+            {value}
         </button>
     </div>
   )
