@@ -5,12 +5,15 @@ import { MdLoop } from 'react-icons/md'
 function Board() {
   const [boxes, setBoxes] = useState(Array(9).fill(null))
   const [isX, setIsX] = useState(true)
+  const [count, setCount] = useState(0)
 
   const winner = calcWinner(boxes)
   let status
 
   if (winner) {
     status = `🎉 Winner: ${winner}!`
+  } else if (!winner && count === 9) {
+    status = "It's a Tie"
   } else {
     status = `Player turn: ${isX ? 'X' : 'O'}`
   }
@@ -24,11 +27,13 @@ function Board() {
     boxes[i] = isX ? 'X' : 'O'
     setBoxes(boxes)
     setIsX(!isX)
+    setCount(count + 1)
   }
 
   const handleReset = () => {
     setIsX(true)
     setBoxes(Array(9).fill(null))
+    setCount(0)
   }
 
   function calcWinner(boxes) {
