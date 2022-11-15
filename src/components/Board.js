@@ -15,7 +15,7 @@ function Board() {
   } else if (!winner && count === 9) {
     status = "It's a Tie"
   } else {
-    status = `Player turn: ${isX ? 'X' : 'O'}`
+    status = `Player turn: ${isX ? '❌' : '⭕'}`
   }
 
   const renderBox = (i) => {
@@ -24,7 +24,7 @@ function Board() {
 
   const handleClick = (i) => {
     if (calcWinner(boxes) || boxes[i]) return
-    boxes[i] = isX ? 'X' : 'O'
+    boxes[i] = isX ? '❌' : '⭕'
     setBoxes(boxes)
     setIsX(!isX)
     setCount(count + 1)
