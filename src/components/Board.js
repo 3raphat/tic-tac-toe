@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Box from './Box'
 import { MdLoop } from 'react-icons/md'
+import confetti from 'canvas-confetti'
 
 function Board() {
   const [boxes, setBoxes] = useState(Array(9).fill(null))
@@ -12,6 +13,15 @@ function Board() {
 
   if (winner) {
     status = `🎉 Winner: ${winner}!`
+    confetti({
+      particleCount: 100,
+      startVelocity: 30,
+      spread: 360,
+      origin: {
+        x: Math.random(),
+        y: Math.random() - 0.2
+      }
+    })
   } else if (!winner && count === 9) {
     status = "It's a Tie"
   } else {
