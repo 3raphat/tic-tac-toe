@@ -15,12 +15,8 @@ function Board() {
     status = `🎉 Winner: ${winner}!`
     confetti({
       particleCount: 100,
-      startVelocity: 30,
-      spread: 360,
-      origin: {
-        x: Math.random(),
-        y: Math.random() - 0.2
-      }
+      spread: 70,
+      origin: { y: 0.6 }
     })
   } else if (!winner && count === 9) {
     status = "It's a Tie"
